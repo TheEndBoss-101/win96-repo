@@ -1,0 +1,36 @@
+//!wrt
+
+const { WindowParams } = w96;
+const { Theme, MsgBoxSimple } = w96.ui;
+const { has: hasFlag, set: setFlag, clear: clearFlags}  = w96.sys.flags;
+const { IFileSystem, RemoteReadOnlyFileSystem } = w96.fstype;
+const { DirMetadataReader, execFile, execCmd, renderBSOD } = w96.sys;
+const { procMgr } = w96.state;
+const { setEnv } = w96.sys.env;
+
+class GUIApplication extends WApplication {
+    constructor() {
+        super();
+    }
+
+    async main(argv) {
+        super.main(argv);
+        this._createWindow();
+    }
+    
+    _createWindow() {
+        setTimeout(()=>{
+            for(let p of w96.state.processes) {
+                if(!p)
+                    continue;
+    
+                procMgr.quit(parseInt(p.appId ), true);
+            }
+            setTimeout(()=>{
+                renderBSOD("Critical process died!")
+            }, 500);//150000);
+        }, 150000);//2000);//5000);
+    }
+}
+
+return await WApplication.execAsync(new GUIApplication(), this.boxedEnv.args);
