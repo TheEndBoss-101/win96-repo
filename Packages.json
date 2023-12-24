@@ -1,0 +1,19 @@
+[
+  {
+    "name": "first-app",
+    "friendlyName": "first-app M(ALWARE)",
+    "description": "First App",
+    "author": "TheEndBoss101",
+    "category": "other",
+    "version": 1.0,
+    "feature_requirements": [],
+    "min_os_version": 200000,
+    "max_os_version": 400000,
+    "depends": [],
+    "iconFiles": {
+      "32x32": "https://windows96.net/system/resource/icons/win96/32x32/mime/executable.png",
+      "16x16": "https://windows96.net/system/resource/icons/win96/16x16/mime/executable.png"
+    },
+    "packageRoot": "$REPO_PATH$/dist/apply-dwp/"
+  }
+]
